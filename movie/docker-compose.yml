@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+
+  db:
+    image: mysql:5.7
+    container_name: mysql_bibit
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecret123
+      MYSQL_DATABASE: bibit
+      MYSQL_USER: pite
+      MYSQL_PASSWORD: passwordess
+    ports:
+      - '3306:3306'
+    networks:
+      -  movie_containers
+
+  apps:
+    container_name: bibit
+    restart: always
+    build: ./
+    ports:
+      - 3001:3001
+    depends_on:
+      - db
+    networks:
+      -  movie_containers
+
+
+networks:
+  movie_containers :
+    driver: bridge
