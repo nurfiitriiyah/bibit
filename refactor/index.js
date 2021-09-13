@@ -21,6 +21,5 @@ class findFirstStrinng {
 }
 
 const find = new findFirstStrinng()
-
 console.log(find.main('nama : (Nur fitriyah)'))
 
