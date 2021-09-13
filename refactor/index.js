@@ -1,28 +1,26 @@
-function findFirstStringInBracket(str) {
-    if (str.length > 0) {
-        let indexFirstBracketFound = str.indexOf("(");
-        if (indexFirstBracketFound >= 0) {
-            let wordsAfterFirstBracket = str.substr(indexFirstBracketFound);
-            if (wordsAfterFirstBracket) {
-                wordsAfterFirstBracket = wordsAfterFirstBracket.substr(1);
-                let indexClosingBracketFound = wordsAfterFirstBracket.indexOf(")");
-                if (indexClosingBracketFound >= 0) {
-                    console.log("tst",wordsAfterFirstBracket.substring(0,
-                        indexClosingBracketFound))
-                    return wordsAfterFirstBracket.substring(0,
-                        indexClosingBracketFound);
-                } else {
-                    return '';
-                }
-            } else {
-                return '';
-            }
+class findFirstStrinng {
+    constructor() {
+        this.data
+    }
+
+    findBricket(character) {
+        return this.data.indexOf(character);
+
+    }
+    main(str) {
+        this.data = str
+        const open = this.findBricket("(")
+        const close = this.findBricket(")")
+        if ((open >= 0 && close > 0) && close > open) {
+            return this.data.substring(open + 1, close)
         } else {
-            return '';
+            return "not found"
         }
-    } else {
-        return '';
+
     }
 }
 
-console.log(findFirstStringInBracket("(pite yah) mueheheh"))
+const find = new findFirstStrinng()
+
+console.log(find.main('nama : (Nur fitriyah)'))
+
