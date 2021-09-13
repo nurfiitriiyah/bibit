@@ -3,19 +3,16 @@ class findFirstStrinng {
         this.data
     }
 
-    findBricket(character) {
+    findBricked(character) {
         return this.data.indexOf(character);
 
     }
+
     main(str) {
         this.data = str
-        const open = this.findBricket("(")
-        const close = this.findBricket(")")
-        if ((open >= 0 && close > 0) && close > open) {
-            return this.data.substring(open + 1, close)
-        } else {
-            return "not found"
-        }
+        const open = this.findBricked("(")
+        const close = this.findBricked(")")
+        return (open >= 0 && close > 0) && close > open ? this.data.substring(open + 1, close) : "not found"
 
     }
 }

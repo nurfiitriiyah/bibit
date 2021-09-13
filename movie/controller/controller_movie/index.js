@@ -4,11 +4,7 @@ const service = new Services()
 class Movie {
     async Search(param) {
         try {
-            const result = await service.Search(param)
-            return result.Search ? result : {
-                Search: [],
-                totalResults: 0
-            }
+            return await service.Search(param, 'search')
 
         } catch (e) {
             throw Error(e)
@@ -16,10 +12,12 @@ class Movie {
     }
 
     async Detail(param) {
-        console.log("aa")
-        const result = await service.Search(param)
-        console.log(result)
-        return result
+        try {
+            return  await service.Search(param, 'detail')
+        } catch (e) {
+            throw Error(e)
+
+        }
     }
 }
 

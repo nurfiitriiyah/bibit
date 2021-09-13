@@ -6,10 +6,18 @@ class ServiceMovie {
         this.url = 'http://www.omdbapi.com/'
     }
 
-    async Search(param) {
-        try{
-            return await http.Get(this.url, {}, param, {})
-        }catch (e) {
+    async Search(param, type) {
+        try {
+            const result = await http.Get(this.url, {}, param, {})
+            if (type === "search") {
+                return result.Search ? result : {
+                    Search: [],
+                    totalResults: 0
+                }
+            } else {
+                return result
+            }
+        } catch (e) {
             throw  Error(e)
         }
     }
