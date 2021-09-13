@@ -11,11 +11,14 @@
 
 - Nodejs v12.22.1
 - NPM 6.14.12
+- Docker (optional)
+- Mysql version 8.0.15
 
 ##How to run 
-for number 3&4 could use ``` sh index.sh ``` <br>
-for number 2 could use ``` sh index.sh ```  inside folder movie to run with docker or use 
-``node index.js`` don't forget to copy local.env on ./const/local.env ./.env
+
+- for number 3&4 could use ``` sh index.sh ``` <br>
+- for number 2 could use ``` sh index.sh ```  inside folder movie to run with docker or use 
+``node index.js`` don't forget to copy local.env [./const/local.env]
 
 
 ###Endpoint 
@@ -58,6 +61,4 @@ for number 2 could use ``` sh index.sh ```  inside folder movie to run with dock
 <td>id</td>
 <td>yes</td>
 </tr>
-
-
 </table>
