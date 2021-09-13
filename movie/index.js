@@ -14,7 +14,6 @@ const {PagingError, Object} = require("./response_mapping/error")
 app.get('/search', mid_movie.CheckParam, LoggerSave, async (req, res) => {
     try {
         const {Search, totalResults} = await con_movie.Search(req.query)
-        console.log(Search)
         res.send(Paging(Search, req.query.page, 10, "", totalResults))
     } catch (e) {
         res.status(500).send(PagingError([], req.query.page, 10, e.message))
